@@ -1,0 +1,70 @@
+{
+	"Generate title": {
+		"prefix": "les-title",
+		"body": [
+			"<DslTitle title=\"$1\" :mode=\"mode\" screen=\"LES-$2\"/>",
+		],
+		"description": "Log output to console"
+	},
+	"Generate footer search": {
+		"prefix": "les-footer-form-search",
+		"body": [
+			"<template v-slot:footer>",
+			"<DslButtonSearch />",
+			"<DslButtonClear />",
+			"</template>",
+		],
+		"description": "Log output to console"
+	},
+	"Generate row": {
+		"prefix": "les-row",
+		"body": [
+			"<Row :gutter=\"30\" type=\"flex\" justify=\"space-between\" class=\"code-row-bg\">",
+			"<Col span=\"5\" :xs=\"24\" :md=\"12\" :lg=\"6\">",
+			"<FormItem label=\"$1\" prop=\"name\">",
+			"<Input v-model=\"formItem.name\" placeholder=\"Enter your name\"></Input>",
+			"</FormItem>",
+			"</Col>",
+			"<Col span=\"5\" :xs=\"24\" :md=\"12\" :lg=\"6\">",
+			"<FormItem label=\"Name\" prop=\"name\">",
+			"<Input v-model=\"formItem.name\" placeholder=\"Enter your name\"></Input>",
+			"</FormItem>",
+			"</Col>",
+			"<Col span=\"5\" :xs=\"24\" :md=\"12\" :lg=\"6\">",
+			"<FormItem label=\"Name\" prop=\"name\">",
+			"<Input v-model=\"formItem.name\" placeholder=\"Enter your name\"></Input>",
+			"</FormItem>",
+			"</Col>",
+			"<Col span=\"5\" :xs=\"24\" :md=\"12\" :lg=\"6\">",
+			"<FormItem label=\"Name\" prop=\"name\">",
+			"<Input v-model=\"formItem.name\" placeholder=\"Enter your name\"></Input>",
+			"</FormItem>",
+			"</Col>",
+			"</Row>",
+		],
+		"description": "Log output to console"
+	},
+	"Generate footer form submit": {
+		"prefix": "les-footer-form-submit",
+		"body": [
+			"<FormItem>",
+			"<Center>",
+			"<DslButtonClear @click=\"handleReset('formValidate')\" />",
+			"<DslButtonSubmit @click=\"handleSubmit('formValidate')\"/>",
+			"</Center>",
+			"</FormItem>",
+		],
+		"description": "Log output to console"
+	},
+	"Generate column": {
+		"prefix": "les-column",
+		"body": [
+			"<Col span=\"5\" :xs=\"24\" :md=\"12\" :lg=\"6\">",
+			"<FormItem label=\"$1\" prop=\"$2\">",
+			"<Input v-model=\"formItem.name\" placeholder=\"Enter your name\"></Input>",
+			"</FormItem>",
+			"</Col>",
+		],
+		"description": "Log output to console"
+	},
+}
