@@ -2,15 +2,15 @@ export default {
   menu: [
     { header: 'Apps' },
     {
-      title: 'Dashboard',
+      title: 'Home',
       group: 'apps',
-      icon: 'dashboard',
+      icon: 'home',
       name: 'home'
     },
     {
       title: 'About',
       group: 'apps',
-      icon: 'dashboard',
+      icon: 'info',
       name: 'about'
     }
   ],

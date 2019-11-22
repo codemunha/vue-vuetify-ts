@@ -1,11 +1,13 @@
 <template>
   <v-toolbar color="primary" fixed dark>
-    <v-toolbar-title>
+    <v-toolbar-title :style="{ 'padding-left' : toolbarToggleStyle }">
       <v-toolbar-side-icon @click="handleDrawerToggle"></v-toolbar-side-icon>
     </v-toolbar-title>
+    <!-- <v-text-field flat solo-inverted prepend-inner-icon="search" label="Search..."
+                  clearable class="search"></v-text-field> -->
     <v-spacer></v-spacer>
     <v-toolbar-items>
-      <v-btn text href="mailto:wangqiangshen@gmail.com">Hire Me</v-btn>
+      <!-- <v-btn text href="mailto:wangqiangshen@gmail.com">Hire Me</v-btn> -->
       <v-btn icon href="https://github.com/tookit/vue-material-admin">
         <i class="fa-2x fab fa-github"></i>
         <!-- <v-icon class="fa-2x fab fa-github">fa-github</v-icon> -->
@@ -56,7 +58,7 @@
 import NotificationList from '@/components/widgets/list/NotificationList.vue'
 import Util from '@/util'
 
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component({
   components: {
@@ -65,6 +67,7 @@ import { Component, Vue } from 'vue-property-decorator'
 })
 export default class AppToolbar extends Vue {
   items: Array<any>
+  @Prop() showDrawer: boolean = true
 
   constructor() {
     super()
@@ -89,6 +92,10 @@ export default class AppToolbar extends Vue {
         click: this.handleLogut
       }
     ]
+  }
+
+  get toolbarToggleStyle() {
+    return this.showDrawer ? '260px' : '0'
   }
 
   get toolbarColor() {

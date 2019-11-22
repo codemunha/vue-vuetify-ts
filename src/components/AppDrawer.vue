@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer class="app--drawer" :mini-variant.sync="mini" app v-model="isShowDrawer"
-                       :width="drawWidth">
+                       :width="drawWidth" :disable-resize-watcher="true" :hide-overlay="true" :stateless="true">
     <v-toolbar color="primary darken-1" dark>
       <img :src="computeLogo" height="36" alt="Vue Material Admin Template" />
       <v-toolbar-title class="ml-0 pl-3">

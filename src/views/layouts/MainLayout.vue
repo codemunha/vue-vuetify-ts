@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire" class="app dashboard">
     <AppDrawer class="app--drawer" :show-drawer="showDrawer"></AppDrawer>
-    <AppToolbar class="app--toolbar" @side-icon-click="handleDrawerVisiable"></AppToolbar>
+    <AppToolbar class="app--toolbar" :show-drawer="showDrawer" @side-icon-click="handleDrawerVisiable"></AppToolbar>
     <v-content>
       <div class="page-wrapper" style="margin-top: 64px;padding: 10px 40px;">
         <!-- Page Header -->
@@ -11,9 +11,6 @@
       <!-- App Footer -->
       <v-footer height="auto" class="white pa-3 app--footer">
         <span class="caption">isocked.com Design &copy; {{ new Date().getFullYear() }}</span>
-        <v-spacer></v-spacer>
-        <span class="caption mr-1"> Make With Love </span>
-        <v-icon color="pink" small>favorite</v-icon>
       </v-footer>
     </v-content>
     <!-- Go to top -->
@@ -47,6 +44,6 @@ export default class MainLayout extends Vue {
 
 <style>
 .page-wrapper {
-  min-height: calc(100vh - 64px - 50px - 81px);
+  height: calc(100vh - 64px - 50px);
 }
 </style>
