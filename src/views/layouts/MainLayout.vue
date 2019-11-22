@@ -44,6 +44,6 @@ export default class MainLayout extends Vue {
 
 <style>
 .page-wrapper {
-  height: calc(100vh - 64px - 50px);
+  min-height: calc(100vh - 64px - 50px);
 }
 </style>

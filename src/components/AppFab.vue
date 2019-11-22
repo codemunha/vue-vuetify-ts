@@ -10,7 +10,7 @@
       color="red"
       v-show="fab"
       @click="toTop">
-      <v-icon>keyboard_arrow_up</v-icon>
+      <v-icon large>keyboard_arrow_up</v-icon>
     </v-btn>
   </v-fab-transition>
 </template>
@@ -32,11 +32,15 @@ export default class AppFab extends Vue {
     if (typeof window === 'undefined') return
 
     const top = window.pageYOffset || document.documentElement.offsetTop || 0
-    this.fab = top > 300
+    this.fab = top > 100
+  }
+
+  created() {
+    window.addEventListener('scroll', this.onScroll)
   }
 
   toTop() {
-    this.$router.push({ hash: '' })
+    // this.$router.push({ hash: '' })
     this.$vuetify.goTo(0)
   }
 }

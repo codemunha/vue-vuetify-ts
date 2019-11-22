@@ -1,18 +1,19 @@
 <template>
-  <v-layout>
-    <v-flex xs24 sm24>
-      <v-card>
-        <v-card-title primary-title>
-          <div>
-            <h3 class="headline mb-0">This is an home page</h3>
-          </div>
-        </v-card-title>
-
-        <v-card-actions>
-          <v-btn flat color="orange">Share</v-btn>
-          <v-btn flat color="orange">Explore</v-btn>
-        </v-card-actions>
+  <v-timeline>
+    <v-timeline-item
+      v-for="n in 6"
+      :key="n"
+      color="red lighten-2"
+      large>
+      <template v-slot:opposite>
+        <span>Tus eu perfecto</span>
+      </template>
+      <v-card class="elevation-2">
+        <v-card-title class="headline">Lorem ipsum</v-card-title>
+        <v-card-text>
+          Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae.
+        </v-card-text>
       </v-card>
-    </v-flex>
-  </v-layout>
+    </v-timeline-item>
+  </v-timeline>
 </template>
