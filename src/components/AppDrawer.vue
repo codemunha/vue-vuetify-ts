@@ -1,6 +1,6 @@
 <template>
-  <v-navigation-drawer class="app--drawer" :mini-variant.sync="mini" app v-model="isShowDrawer"
-                       :width="drawWidth" :disable-resize-watcher="true" :hide-overlay="true" :stateless="true">
+  <v-navigation-drawer class="app--drawer" :mini-variant.sync="mini" app v-model="_showDrawer"
+                       :width="_drawWidth" :disable-resize-watcher="true" :hide-overlay="true" :stateless="true">
     <v-toolbar color="primary darken-1" dark>
       <img :src="computeLogo" height="36" alt="Vue Material Admin Template" />
       <v-toolbar-title class="ml-0 pl-3">
@@ -103,7 +103,6 @@ export default class AppDrawer extends Vue {
   mini: boolean
   menus: Array<IMenu>
   scrollSettings: any
-  _isShowDrawer: boolean = false
 
   @Prop({ default: true }) expanded!: boolean
   @Prop({ default: '260' }) private drawWidth!: string
@@ -117,15 +116,6 @@ export default class AppDrawer extends Vue {
     this.scrollSettings = {
       maxScrollbarLength: 160
     }
-  }
-
-  get isShowDrawer() {
-    this._isShowDrawer = this.showDrawer
-    return this._isShowDrawer
-  }
-
-  set isShowDrawer(value: boolean) {
-    this._isShowDrawer = value
   }
 
   get _showDrawer(): boolean {
