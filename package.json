@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "json-server":"json-server --watch db.json",
+    "push":"git add . && git commit -m 'update' && git push"
   },
   "dependencies": {
     "@mdi/font": "^3.6.95",
