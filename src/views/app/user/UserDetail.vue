@@ -89,7 +89,7 @@
               </v-col>
             </v-row>
           </v-container>
-          <ModalConfirm :dialog="dialog" />
+          <ModalConfirm :dialog="_dialog" @ok="handleSave" @close="handleClose"/>
         </v-form>
       </v-card-text>
     </v-card>
@@ -122,6 +122,24 @@ export default class UserDetail extends Vue {
 
   save() {
     this.dialog = !this.dialog
+  }
+
+  get _dialog() {
+    return this.dialog
+  }
+
+  set _dialog(value: boolean) {
+    this.dialog = value
+  }
+
+  handleSave(value: boolean) {
+    console.log('value : ', value)
+    this.dialog = value
+  }
+
+  handleClose(value: boolean) {
+    console.log('value : ', value)
+    this.dialog = value
   }
 
   update() {

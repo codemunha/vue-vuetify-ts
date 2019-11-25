@@ -1,9 +1,9 @@
 <template>
   <div>
     <v-row justify="center">
-      <v-dialog
-        v-model="_dialog"
-        max-width="290">
+      <v-dialog :persistent="true"
+                v-model="_dialog"
+                max-width="290">
         <v-card>
           <v-card-title class="headline">{{ _title }}</v-card-title>
 
@@ -17,14 +17,14 @@
             <v-btn
               color="gray darken-1"
               text
-              @click="dialog = false">
+              @click="close">
               Cancel
             </v-btn>
 
             <v-btn
               color="blue darken-1"
               text
-              @click="dialog = false">
+              @click="ok">
               OK
             </v-btn>
           </v-card-actions>
@@ -95,6 +95,14 @@ export default class ModalConfirm extends Vue {
     }
 
     return this.description || description
+  }
+
+  ok() {
+    this.$emit('ok', false)
+  }
+
+  close() {
+    this.$emit('close', false)
   }
 }
 
