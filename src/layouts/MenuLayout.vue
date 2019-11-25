@@ -94,9 +94,9 @@ export default class MenuLayout extends Vue {
       console.log('response : ', res)
     })
     this.items = [
-      { icon: 'mdi-home', text: 'Home', to: 'home' },
-      { icon: 'mdi-information', text: 'About', to: 'about' },
-      { icon: 'mdi-information', text: 'user', to: 'user' }
+      { icon: 'mdi-home', text: 'Home', to: '/home' },
+      { icon: 'mdi-information', text: 'About', to: '/about' },
+      { icon: 'mdi-information', text: 'user', to: '/user' }
     ]
   }
 
