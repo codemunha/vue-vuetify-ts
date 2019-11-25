@@ -1,16 +1,29 @@
 <template>
-  <v-app id="app">
-    <HeaderLayout @menu-toggle="handleMenuToggle" />
-    <MenuLayout :drawer="drawer" :mini="mini" />
-    <v-content>
-      <v-container
-        class="fill-height"
-        fluid>
-        <router-view></router-view>
-      </v-container>
-    </v-content>
-    <FooterLayout />
-  </v-app>
+  <div>
+    <v-app id="app">
+      <HeaderLayout @menu-toggle="handleMenuToggle" />
+      <MenuLayout :drawer="drawer" :mini="mini" />
+      <v-content>
+        <v-container class="grey lighten-5">
+          <v-row no-gutters>
+            <v-col :lg="12">
+              <Breadcrumbs />
+            </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-col :lg="12">
+              <router-view></router-view>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-content>
+      <FooterLayout />
+
+    </v-app>
+    <v-overlay :value="overlay" style="z-index: 6;">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
+  </div>
 </template>
 
 <script lang="ts">
@@ -18,17 +31,21 @@ import { Component, Vue } from 'vue-property-decorator'
 import HeaderLayout from './HeaderLayout.vue'
 import MenuLayout from './MenuLayout.vue'
 import FooterLayout from './FooterLayout.vue'
+import Breadcrumbs from '@/components/Breadcrumbs.vue'
+import { Getter } from 'vuex-class'
 
 @Component({
   components: {
     HeaderLayout,
     MenuLayout,
-    FooterLayout
+    FooterLayout,
+    Breadcrumbs
   }
 })
 export default class MainLayout extends Vue {
+  @Getter('requests') _requests!: number
   drawer: boolean
-  mini: boolean
+  mini: Boolean
 
   constructor() {
     super()
@@ -49,6 +66,10 @@ export default class MainLayout extends Vue {
 
   created() {
     window.addEventListener('resize', this.onResize)
+  }
+
+  get overlay() {
+    return this._requests !== 0
   }
 
   onResize() {

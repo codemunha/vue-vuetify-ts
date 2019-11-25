@@ -1,6 +1,6 @@
 <template>
   <v-app-bar
-    :clipped-left="false"
+    :clipped-left="true"
     app>
     <v-app-bar-nav-icon
       @click.stop="menuToggle"/>

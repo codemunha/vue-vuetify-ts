@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 import th from 'vuetify/src/locale/th'
+import '@/themes/style.scss'
 
 Vue.use(Vuetify)
 
@@ -11,7 +12,7 @@ export default new Vuetify({
     },
     themes: {
       light: {
-        primary: '#ee44aa',
+        primary: '#1867c0 ',
         secondary: '#424242',
         accent: '#82B1FF',
         error: '#FF5252',

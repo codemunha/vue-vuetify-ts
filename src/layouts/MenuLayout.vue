@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer
     v-model="_drawer"
-    :clipped="false"
+    :clipped="true"
     :mini-variant="_mini"
     :disable-resize-watcher="true" :hide-overlay="true" :stateless="true" :touchless="true"
     app>
@@ -29,6 +29,7 @@
           :key="item.text"
           v-model="item.model"
           :prepend-icon="item.model ? item.icon : item['icon-alt']"
+          :title="item.text"
           append-icon="">
           <template v-slot:activator>
             <v-list-item>
@@ -43,6 +44,7 @@
             v-for="(child, i) in item.children"
             :key="i"
             :to="child.to ? child.to : '/'"
+            :title="item.text"
             link>
             <v-list-item-action v-if="child.icon">
               <v-icon>{{ child.icon }}</v-icon>
@@ -58,6 +60,7 @@
           v-else
           :key="item.text"
           :to="item.to ? item.to : ''"
+          :title="item.text"
           link>
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
@@ -74,8 +77,11 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
+import http from '@/utils/http'
 
-@Component({})
+@Component({
+
+})
 export default class MenuLayout extends Vue {
   @Prop({ default: true }) drawer!: boolean
   @Prop({ default: false }) mini!: boolean
@@ -84,9 +90,13 @@ export default class MenuLayout extends Vue {
   constructor() {
     super()
 
+    http.get('http://localhost:3000/posts').then(res => {
+      console.log('response : ', res)
+    })
     this.items = [
-      { icon: 'mdi-home', text: 'Home', to: 'home' },
-      { icon: 'mdi-information', text: 'About', to: 'about' }
+      { icon: 'mdi-home', text: 'Home', to: '/home' },
+      { icon: 'mdi-information', text: 'About', to: '/about' },
+      { icon: 'mdi-information', text: 'user', to: '/user' }
     ]
   }
 
