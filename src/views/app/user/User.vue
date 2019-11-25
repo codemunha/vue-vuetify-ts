@@ -7,7 +7,7 @@
           @click="show = !show">
           <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
         </v-btn>
-        ค้นหา
+        {{ $t("message.search") }}
       </v-card-title>
 
       <v-expand-transition>
@@ -58,10 +58,10 @@
                     <v-btn
                       class="ma-2"
                       outlined
-                      color="indigo"><v-icon>mdi-close</v-icon> ล้าง</v-btn>
+                      color="indigo"><v-icon>mdi-close</v-icon> {{ $t("message.clear") }}</v-btn>
                     <v-btn
                       class="ma-2"
-                      color="primary"><v-icon>mdi-magnify</v-icon> ค้นหา</v-btn>
+                      color="primary"><v-icon>mdi-magnify</v-icon> {{ $t("message.search") }}</v-btn>
                   </v-col>
                 </v-row>
               </v-container>
@@ -90,7 +90,7 @@
                   color="primary"
                   dark
                   v-on="on">
-                  ตัวเลือก <v-icon small>mdi-settings-outline</v-icon>
+                  {{ $t("message.choice") }} <v-icon small>mdi-settings-outline</v-icon>
                 </v-btn>
               </template>
               <v-list>
@@ -134,6 +134,8 @@
           @click="initialize">Reset</v-btn>
       </template>
     </v-data-table>
+
+    <ModalConfirm type="delete" :dialog="_dialog" @ok="handleSave" @close="handleClose"/>
   </div>
 </template>
 
@@ -203,11 +205,21 @@ export default class User extends Vue {
     { title: 'Click Me 2' }
   ]
 
+  selectItem: any
+
   constructor() {
     super()
 
     this.desserts = []
     this.admins = [['Management', 'people_outline'], ['Settings', 'settings']]
+  }
+
+  get _dialog() {
+    return this.dialog
+  }
+
+  set _dialog(value: boolean) {
+    this.dialog = value
   }
 
   get formTitle() {
@@ -216,12 +228,12 @@ export default class User extends Vue {
 
   async initialize() {
     simpleService.getDessertList().then(res => {
-      console.log('desserts: ', res.data)
       this.desserts = res.data
     })
   }
 
   editItem(item: any) {
+    console.log(item)
     this.$router.push({
       name: 'user-detail',
       query: item
@@ -229,42 +241,27 @@ export default class User extends Vue {
   }
 
   createItem() {
-    this.$router.push({ name: 'user-detail', query: {} })
+    this.$router.push({ name: 'user-detail' })
   }
 
   deleteItem(item: any) {
-    // const index = this.desserts.indexOf(item)
-    confirm('Are you sure you want to delete this item?') &&
-      simpleService.deleteDessert(item.id).then(res => {
-        this.initialize()
-      })
+    this.dialog = true
+    this.selectItem = item
   }
 
-  close() {
-    this.dialog = false
-    setTimeout(() => {
-      this.editedItem = Object.assign({}, this.defaultItem)
-      this.editedIndex = -1
-    }, 300)
+  handleSave(value: boolean) {
+    simpleService.deleteDessert(this.selectItem.id).then(res => {
+      this.dialog = value
+      this.initialize()
+    })
   }
 
-  save() {
-    if (this.editedIndex > -1) {
-      Object.assign(this.desserts[this.editedIndex], this.editedItem)
-    } else {
-      this.desserts.push(this.editedItem)
-    }
-    this.close()
+  handleClose(value: boolean) {
+    this.dialog = value
   }
 
   async created() {
-    console.log('created...')
     this.initialize()
-  }
-
-  @Watch('dialog')
-  onDialogChange(newVal: any, oldval: any) {
-    newVal || this.close()
   }
 }
 </script>

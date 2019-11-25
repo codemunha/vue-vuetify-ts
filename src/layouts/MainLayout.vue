@@ -31,15 +31,13 @@ import { Component, Vue } from 'vue-property-decorator'
 import HeaderLayout from './HeaderLayout.vue'
 import MenuLayout from './MenuLayout.vue'
 import FooterLayout from './FooterLayout.vue'
-import Breadcrumbs from '@/components/Breadcrumbs.vue'
 import { Getter } from 'vuex-class'
 
 @Component({
   components: {
     HeaderLayout,
     MenuLayout,
-    FooterLayout,
-    Breadcrumbs
+    FooterLayout
   }
 })
 export default class MainLayout extends Vue {
