@@ -1,2 +1,1 @@
-export * from '@/interfaces/IMenu'
-export * from '@/interfaces/INotification'
+export * from '@/interfaces/IState'

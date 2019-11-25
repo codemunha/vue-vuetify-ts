@@ -1,4 +1,4 @@
-# vue-vuetify
+# vue-vuetify-ts
 
 ## Project setup
 ```
