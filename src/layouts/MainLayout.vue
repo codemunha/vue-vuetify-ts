@@ -4,7 +4,7 @@
       <HeaderLayout @menu-toggle="handleMenuToggle" />
       <MenuLayout :drawer="drawer" :mini="mini" />
       <v-content>
-        <v-container class="grey lighten-5">
+        <v-container fluid class="grey lighten-5">
           <v-row no-gutters>
             <v-col :lg="12">
               <Breadcrumbs />
