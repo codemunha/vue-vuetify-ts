@@ -90,9 +90,6 @@ export default class MenuLayout extends Vue {
   constructor() {
     super()
 
-    http.get('http://localhost:3000/posts').then(res => {
-      console.log('response : ', res)
-    })
     this.items = [
       { icon: 'mdi-home', text: 'Home', to: '/home' },
       { icon: 'mdi-information-outline', text: 'About', to: '/about' },
