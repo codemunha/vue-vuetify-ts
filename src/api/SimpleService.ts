@@ -5,6 +5,10 @@ class SimpleService {
     return http.get('http://localhost:3000/dessert')
   }
 
+  getDessert(id: number): Promise<any> {
+    return http.get('http://localhost:3000/dessert/' + id)
+  }
+
   saveDessert(data: any): Promise<any> {
     return http.post('http://localhost:3000/dessert', data)
   }

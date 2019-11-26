@@ -1,9 +1,11 @@
 <template>
   <div>
-    {{ this.$route.query }}
+    <div style="margin-bottom: 10px;">
+      <v-btn text small @click="back"><v-icon>mdi-keyboard-backspace</v-icon> ย้อนกลับ</v-btn>
+    </div>
     <v-card class="mx-auto">
       <v-card-title>
-        รายละเอียด
+        {{ $t("message.detail") }}
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text>
@@ -77,14 +79,14 @@
                   class="ma-2"
                   @click="save"
                   color="primary">
-                  <v-icon>mdi-check-box-outline</v-icon> บันทึก
+                  <v-icon>mdi-check-box-outline</v-icon> {{ $t("message.save") }}
                 </v-btn>
                 <v-btn
                   class="ma-2"
                   outlined
                   @click="reset"
                   color="indigo">
-                  <v-icon>mdi-close</v-icon> ล้าง
+                  <v-icon>mdi-close</v-icon> {{ $t("message.clear") }}
                 </v-btn>
               </v-col>
             </v-row>
@@ -99,51 +101,45 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { simpleService } from '@/api/SimpleService'
-import ModalConfirm from '@/components/ModalConfirm.vue'
-
 @Component({
-  name: 'User',
-  components: {
-    ModalConfirm
-  }
+  name: 'User'
 })
 export default class UserDetail extends Vue {
   model: any;
   dialog: boolean = false;
   valid: boolean = true;
   rules: Array<any> = [(v: any) => !!v || 'Field is required'];
-  created() {
-    this.model = this.$route.query
+  constructor() {
+    super()
+    this.model = {}
   }
-
+  created() {
+    let item = this.$route.query
+    let id = Number(item.id) || 0
+    simpleService.getDessert(id).then(res => {
+      this.model = res.data
+    })
+  }
   $refs: any = {
     el: HTMLFormElement
   };
-
   save() {
-    this.dialog = !this.dialog
+    if (this.$refs.form.validate()) {
+      this.dialog = !this.dialog
+      // this.snackbar = true
+    }
   }
-
+  back() {
+    this.$router.push({ name: 'user' })
+  }
   get _dialog() {
     return this.dialog
   }
-
   set _dialog(value: boolean) {
     this.dialog = value
   }
-
   handleSave(value: boolean) {
-    console.log('value : ', value)
     this.dialog = value
-  }
-
-  handleClose(value: boolean) {
-    console.log('value : ', value)
-    this.dialog = value
-  }
-
-  update() {
-    console.log(this.model)
     if (this.model.id == undefined) {
       simpleService
         .saveDessert(this.model)
@@ -162,7 +158,9 @@ export default class UserDetail extends Vue {
       })
     }
   }
-
+  handleClose(value: boolean) {
+    this.dialog = value
+  }
   validate() {
     if (this.$refs.form.validate()) {
       // this.snackbar = true

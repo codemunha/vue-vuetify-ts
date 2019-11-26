@@ -18,17 +18,18 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
-
 @Component({
   name: 'Breadcrumbs'
 })
 export default class Breadcrumbs extends Vue {
-  breadcrumbs: Array<any>
-
+  _breadcrumbs: Array<any>
   constructor() {
     super()
-
-    this.breadcrumbs = []
+    this._breadcrumbs = []
+  }
+  get breadcrumbs() {
+    this._breadcrumbs = this.$route.meta.breadcrumb
+    return this._breadcrumbs
   }
 }
 
