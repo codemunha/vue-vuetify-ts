@@ -77,7 +77,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { SimpleService } from '@/api/SimpleService'
+import { SimpleService } from '@/api'
 
 @Component({
 
@@ -98,7 +98,7 @@ export default class MenuLayout extends Vue {
   }
   created() {
     SimpleService.getMenuList().then(res => {
-      this.items = res.data
+      this.items = res
     })
   }
   get _drawer() {

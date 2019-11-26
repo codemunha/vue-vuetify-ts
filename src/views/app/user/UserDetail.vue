@@ -100,7 +100,8 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
-import { SimpleService } from '@/api/SimpleService'
+import { SimpleService } from '@/api'
+
 @Component({
   name: 'User'
 })
@@ -124,7 +125,7 @@ export default class UserDetail extends Vue {
 
     if (id != 0) {
       SimpleService.getDessert(id).then(res => {
-        this.model = res.data
+        this.model = res
       })
     }
   }
