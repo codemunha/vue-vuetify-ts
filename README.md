@@ -1,5 +1,6 @@
 # vue-vuetify-ts
-
+<p align="center"><img src ="./pic/Capture1.PNG" /></p>
+<p align="center"><img src ="./pic/Capture2.PNG" /></p>
 ## Project setup
 ```
 yarn install
