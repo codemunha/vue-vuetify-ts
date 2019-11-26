@@ -144,7 +144,7 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
-import { simpleService } from '@/api/SimpleService'
+import { SimpleService } from '@/api/SimpleService'
 @Component({
   name: 'User'
 })
@@ -216,7 +216,7 @@ export default class User extends Vue {
     return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
   }
   async initialize() {
-    simpleService.getDessertList().then(res => {
+    SimpleService.getDessertList().then(res => {
       this.desserts = res.data
     })
   }
@@ -235,7 +235,7 @@ export default class User extends Vue {
     this.selectItem = item
   }
   handleSave(value: boolean) {
-    simpleService.deleteDessert(this.selectItem.id).then(res => {
+    SimpleService.deleteDessert(this.selectItem.id).then(res => {
       this.dialog = value
       this.initialize()
     })

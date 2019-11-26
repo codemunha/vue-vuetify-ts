@@ -77,7 +77,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import http from '@/utils/http'
+import { SimpleService } from '@/api/SimpleService'
 
 @Component({
 
@@ -85,18 +85,22 @@ import http from '@/utils/http'
 export default class MenuLayout extends Vue {
   @Prop({ default: true }) drawer!: boolean
   @Prop({ default: false }) mini!: boolean
-  items: Array<any>
+  items!: Array<any>
 
   constructor() {
     super()
-
-    this.items = [
-      { icon: 'mdi-home', text: 'Home', to: '/home' },
-      { icon: 'mdi-information-outline', text: 'About', to: '/about' },
-      { icon: 'mdi-account-outline', text: 'user', to: '/user' }
-    ]
+    this.items = []
+    // this.items = [
+    //   { icon: 'mdi-home', text: 'Home', to: '/home' },
+    //   { icon: 'mdi-information-outline', text: 'About', to: '/about' },
+    //   { icon: 'mdi-account-outline', text: 'user', to: '/user' }
+    // ]
   }
-
+  created() {
+    SimpleService.getMenuList().then(res => {
+      this.items = res.data
+    })
+  }
   get _drawer() {
     return this.drawer
   }

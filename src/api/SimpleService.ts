@@ -1,6 +1,9 @@
 import http from '@/utils/http'
 
-class SimpleService {
+class Simple {
+  getMenuList(): Promise<any> {
+    return http.get('http://localhost:3000/menu')
+  }
   getDessertList(): Promise<any> {
     return http.get('http://localhost:3000/dessert')
   }
@@ -18,4 +21,4 @@ class SimpleService {
   }
 }
 
-export const simpleService = new SimpleService()
+export const SimpleService = new Simple()

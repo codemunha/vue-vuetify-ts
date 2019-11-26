@@ -100,7 +100,7 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator'
-import { simpleService } from '@/api/SimpleService'
+import { SimpleService } from '@/api/SimpleService'
 @Component({
   name: 'User'
 })
@@ -123,7 +123,7 @@ export default class UserDetail extends Vue {
     let id = Number(item.id) || 0
 
     if (id != 0) {
-      simpleService.getDessert(id).then(res => {
+      SimpleService.getDessert(id).then(res => {
         this.model = res.data
       })
     }
@@ -151,7 +151,7 @@ export default class UserDetail extends Vue {
   handleSave(value: boolean) {
     this.dialog = value
     if (this.model.id == undefined) {
-      simpleService
+      SimpleService
         .saveDessert(this.model)
         .then(res => {
           console.log(res)

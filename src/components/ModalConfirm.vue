@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
-import { simpleService } from '@/api/SimpleService'
+import { SimpleService } from '@/api/SimpleService'
 
 @Component({
   name: 'ModalConfirm'
