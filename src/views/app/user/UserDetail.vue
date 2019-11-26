@@ -113,31 +113,41 @@ export default class UserDetail extends Vue {
     super()
     this.model = {}
   }
-  created() {
-    let item = this.$route.query
-    let id = Number(item.id) || 0
-    simpleService.getDessert(id).then(res => {
-      this.model = res.data
-    })
-  }
+
   $refs: any = {
     el: HTMLFormElement
   };
+
+  created() {
+    let item = this.$route.query
+    let id = Number(item.id) || 0
+
+    if (id != 0) {
+      simpleService.getDessert(id).then(res => {
+        this.model = res.data
+      })
+    }
+  }
+
   save() {
     if (this.$refs.form.validate()) {
       this.dialog = !this.dialog
       // this.snackbar = true
     }
   }
+
   back() {
     this.$router.push({ name: 'user' })
   }
+
   get _dialog() {
     return this.dialog
   }
+
   set _dialog(value: boolean) {
     this.dialog = value
   }
+
   handleSave(value: boolean) {
     this.dialog = value
     if (this.model.id == undefined) {
@@ -158,14 +168,11 @@ export default class UserDetail extends Vue {
       })
     }
   }
+
   handleClose(value: boolean) {
     this.dialog = value
   }
-  validate() {
-    if (this.$refs.form.validate()) {
-      // this.snackbar = true
-    }
-  }
+
   reset() {
     this.$refs.form.reset()
     this.$refs.form.resetValidation()
