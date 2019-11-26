@@ -2,7 +2,7 @@
   <v-navigation-drawer
     v-model="_drawer"
     :clipped="true"
-    :mini-variant="_mini"
+    :mini-variant.sync="_mini"
     :disable-resize-watcher="true" :hide-overlay="true" :stateless="true" :touchless="true"
     app>
     <v-list dense>
@@ -95,8 +95,8 @@ export default class MenuLayout extends Vue {
     })
     this.items = [
       { icon: 'mdi-home', text: 'Home', to: '/home' },
-      { icon: 'mdi-information', text: 'About', to: '/about' },
-      { icon: 'mdi-information', text: 'user', to: '/user' }
+      { icon: 'mdi-information-outline', text: 'About', to: '/about' },
+      { icon: 'mdi-account-outline', text: 'user', to: '/user' }
     ]
   }
 
