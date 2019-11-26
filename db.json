@@ -1,0 +1,90 @@
+{
+  "menu":[
+    { "icon": "mdi-home", "text": "Home", "to": "/home" },
+    { "icon": "mdi-information-outline", "text": "About", "to": "/about" },
+    { "icon": "mdi-account-outline", "text": "user", "to": "/user" }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "dessert": [
+    {
+      "id": 3,
+      "name": "Eclair",
+      "calories": 262,
+      "fat": 16,
+      "carbs": 23,
+      "protein": 6
+    },
+    {
+      "id": 4,
+      "name": "Cupcake",
+      "calories": 305,
+      "fat": 3.7,
+      "carbs": 67,
+      "protein": 4.3
+    },
+    {
+      "id": 6,
+      "name": "Gingerbread",
+      "calories": 356,
+      "fat": 16,
+      "carbs": 49,
+      "protein": 3.9
+    },
+    {
+      "id": 5,
+      "name": "Jelly bean",
+      "calories": 375,
+      "fat": 0,
+      "carbs": 94,
+      "protein": 0
+    },
+    {
+      "id": 7,
+      "name": "Lollipop",
+      "calories": 392,
+      "fat": 0.2,
+      "carbs": 98,
+      "protein": 0
+    },
+    {
+      "id": 8,
+      "name": "Honeycomb",
+      "calories": 408,
+      "fat": 3.2,
+      "carbs": 87,
+      "protein": 6.5
+    },
+    {
+      "id": 9,
+      "name": "Donut",
+      "calories": 452,
+      "fat": 25,
+      "carbs": 51,
+      "protein": 4.9
+    },
+    {
+      "id": 10,
+      "name": "KitKat",
+      "calories": 518,
+      "fat": 26,
+      "carbs": 65,
+      "protein": 7
+    }
+  ]
+}
