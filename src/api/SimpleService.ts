@@ -1,9 +1,13 @@
 import http from '@/utils/http'
 import { BaseService } from './BaseService'
+import { from, Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
 
 class Simple extends BaseService {
-  getMenuList(): Promise<any> {
-    return http.get('http://localhost:3000/menu').then(this.handleSuccess)
+  getMenuList(): Observable<any> {
+    return from(http.get('http://localhost:3000/menu')).pipe(
+      map(this.handleSuccess)
+    )
   }
   getDessertList(): Promise<any> {
     return http.get('http://localhost:3000/dessert').then(this.handleSuccess)

@@ -97,7 +97,7 @@ export default class MenuLayout extends Vue {
     // ]
   }
   created() {
-    SimpleService.getMenuList().then(res => {
+    SimpleService.getMenuList().subscribe(res => {
       this.items = res
     })
   }
