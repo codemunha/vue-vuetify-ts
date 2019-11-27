@@ -3,12 +3,15 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
+import '@/components'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
-import '@fortawesome/fontawesome-free/css/all.css'
+import '@mdi/font/css/materialdesignicons.css'
+import { i18n } from '@/i18n/message'
 
 Vue.config.productionTip = false
 
 new Vue({
+  i18n,
   router,
   store,
   vuetify,

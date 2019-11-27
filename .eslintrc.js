@@ -37,18 +37,6 @@ module.exports = {
     'vue/html-closing-bracket-newline': ['error', {
       'multiline': 'never'
     }],
-    // 'vue/html-closing-bracket-spacing': 'error',
-    // 'vue/html-end-tags': 'error',
-    // 'vue/html-self-closing':[0],
-    // 'vue/html-self-closing': ['error', {
-    //   'html': {
-    //     'void': 'never',
-    //     'normal': 'always',
-    //     'component': 'any'
-    //   },
-    //   'svg': 'always',
-    //   'math': 'always'
-    // }],
     'vue/no-parsing-error': [2, {
       'x-invalid-end-tag': false
     }],
@@ -72,7 +60,6 @@ module.exports = {
     'eol-last': 'off',
     'space-before-function-paren': 'off',
     'no-mixed-operators': 'off'
-    // 'no-eval':[0]
   },
   parserOptions: {
     parser: '@typescript-eslint/parser'
