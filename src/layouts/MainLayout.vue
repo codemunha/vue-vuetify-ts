@@ -7,12 +7,12 @@
         <v-container fluid class="grey lighten-5">
           <v-row no-gutters>
             <v-col class="d-flex" :offset-lg="11" :lg="1">
-              <v-select
+              <!-- <v-select
                 v-model="$i18n.locale"
                 :items="langs"
                 :label="$t('message.language')"
                 dense
-                outlined></v-select>
+                outlined></v-select> -->
             </v-col>
           </v-row>
           <v-row no-gutters>
@@ -51,7 +51,7 @@ import { Getter } from 'vuex-class'
 })
 export default class MainLayout extends Vue {
   @Getter('requests') _requests!: number
-  langs: Array<string> = ['th', 'en']
+  // langs: Array<string> = ['th', 'en']
   drawer: boolean
   mini: Boolean
   constructor() {

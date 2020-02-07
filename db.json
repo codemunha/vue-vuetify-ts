@@ -1,8 +1,20 @@
 {
-  "menu":[
-    { "icon": "mdi-home", "text": "Home", "to": "/home" },
-    { "icon": "mdi-information-outline", "text": "About", "to": "/about" },
-    { "icon": "mdi-account-outline", "text": "user", "to": "/user" }
+  "menu": [
+    {
+      "icon": "mdi-home",
+      "text": "Home",
+      "to": "/home"
+    },
+    {
+      "icon": "mdi-information-outline",
+      "text": "About",
+      "to": "/about"
+    },
+    {
+      "icon": "mdi-account-outline",
+      "text": "user",
+      "to": "/user"
+    }
   ],
   "posts": [
     {
@@ -85,6 +97,14 @@
       "fat": 26,
       "carbs": 65,
       "protein": 7
+    },
+    {
+      "name": "ddd",
+      "calories": "ddddddd",
+      "fat": "ddd",
+      "protein": "ddd",
+      "carbs": "ddd",
+      "id": 11
     }
   ]
 }
