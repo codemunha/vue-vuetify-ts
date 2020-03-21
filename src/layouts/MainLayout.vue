@@ -5,7 +5,7 @@
       <MenuLayout :drawer="drawer" :mini="mini" />
       <v-content>
         <v-container fluid class="grey lighten-5">
-          <v-row no-gutters>
+          <!-- <v-row no-gutters>
             <v-col class="d-flex" :offset-lg="11" :lg="1">
               <v-select
                 v-model="$i18n.locale"
@@ -14,7 +14,7 @@
                 dense
                 outlined></v-select>
             </v-col>
-          </v-row>
+          </v-row> -->
           <v-row no-gutters>
             <v-col :lg="12">
               <Breadcrumbs />
@@ -51,8 +51,8 @@ import { Getter } from 'vuex-class'
 })
 export default class MainLayout extends Vue {
   @Getter('requests') _requests!: number
-  langs: Array<string> = ['th', 'en']
-  drawer: boolean
+  // langs: Array<string> = ['th', 'en']
+  drawer: Boolean
   mini: Boolean
   constructor() {
     super()

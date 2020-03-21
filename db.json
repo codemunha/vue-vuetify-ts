@@ -1,8 +1,20 @@
 {
-  "menu":[
-    { "icon": "mdi-home", "text": "Home", "to": "/home" },
-    { "icon": "mdi-information-outline", "text": "About", "to": "/about" },
-    { "icon": "mdi-account-outline", "text": "user", "to": "/user" }
+  "menu": [
+    {
+      "icon": "mdi-home",
+      "text": "Home",
+      "to": "/home"
+    },
+    {
+      "icon": "mdi-information-outline",
+      "text": "About",
+      "to": "/about"
+    },
+    {
+      "icon": "mdi-account-outline",
+      "text": "user",
+      "to": "/user"
+    }
   ],
   "posts": [
     {
