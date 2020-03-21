@@ -1,10 +1,24 @@
+
 <template>
   <v-row no-gutters>
     <v-col :sm="12" :lg="6">
-      <h1 style="text-transform: capitalize;">{{ this.$route.name }}</h1>
+      <h1 style="text-transform: capitalize;">
+        <!-- {{ this.$route.name }} -->
+        {{ $t(`message.${$route.name}`) }}
+      </h1>
     </v-col>
     <v-col :sm="12" :lg="6">
       <v-breadcrumbs :items="breadcrumbs" class="breadcrumbs-main">
+        <template v-slot:item="{ item }">
+          <v-breadcrumbs-item
+            :href="item.href"
+            :disabled="item.disabled">
+            <v-icon small left v-if="item.href == '/'">{{ 'mdi-home' }}</v-icon>
+            <!-- eslint-disable vue/no-parsing-error -->
+            {{ $t(`message.${item.text}`) }}
+            <!-- {{ item.text.toUpperCase() }} -->
+          </v-breadcrumbs-item>
+        </template>
       </v-breadcrumbs>
     </v-col>
   </v-row>

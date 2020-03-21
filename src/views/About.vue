@@ -1,5 +1,7 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <h3>Outlined cards</h3>
+    <p>An outlined card has 0 elevation and contains a soft border.</p>
+
   </div>
 </template>

@@ -4,7 +4,7 @@
     app>
     <v-app-bar-nav-icon
       @click.stop="menuToggle"/>
-    <v-toolbar-title>Vuetify</v-toolbar-title>
+    <v-toolbar-title>{{ $t("message.title") }}</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-menu>
       <template v-slot:activator="{ on, attrs }">

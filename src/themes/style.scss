@@ -1,9 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=Sarabun:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=thai");
+$body-font-head: "Prompt";
 $body-font-family: "Sarabun";
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.v-toolbar__title,
+.v-btn__content,
+.v-list-item__title,
+.v-card__title {
+  font-family: $body-font-head, sans-serif !important;
+}
 .v-application {
   font-family: $body-font-family, sans-serif !important;
 }
+
 
 .col-xl,
 .col-xl-auto,
@@ -86,6 +101,9 @@ $body-font-family: "Sarabun";
 
 .v-application .mx-auto {
   margin-bottom: 20px;
+}
+.v-content__wrap {
+  background-color: #fafafa;
 }
 
 .footer-form {

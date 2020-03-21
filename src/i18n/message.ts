@@ -8,6 +8,10 @@ export const i18n = new VueI18n({
   messages: {
     en: {
       message: {
+        title: 'System Management',
+        home: 'Home',
+        user: 'User',
+        about: 'About',
         hello: 'hello world',
         greeting: 'good morning',
         search: 'Search',
@@ -21,6 +25,11 @@ export const i18n = new VueI18n({
     },
     th: {
       message: {
+        title: 'การจัดการระบบ',
+        home: 'หน้าแรก',
+        user: 'สมาชิก',
+        about: 'เกี่ยวกับเรา',
+
         hello: 'hello world',
         greeting: 'good morning',
         search: 'ค้นหา',

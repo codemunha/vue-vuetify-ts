@@ -2,12 +2,12 @@
   "menu": [
     {
       "icon": "mdi-home",
-      "text": "Home",
+      "text": "home",
       "to": "/home"
     },
     {
       "icon": "mdi-information-outline",
-      "text": "About",
+      "text": "about",
       "to": "/about"
     },
     {

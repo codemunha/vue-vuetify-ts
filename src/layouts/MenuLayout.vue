@@ -35,7 +35,8 @@
             <v-list-item>
               <v-list-item-content>
                 <v-list-item-title>
-                  {{ item.text }}
+                  <!-- {{ item.text }} -->
+                  {{ $t(`message.${item.text}`) }}
                 </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
@@ -51,7 +52,8 @@
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>
-                {{ child.text }}
+                <!-- {{ child.text }} -->
+                {{ $t(`message.${child.text}`) }}
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
@@ -67,7 +69,8 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>
-              {{ item.text }}
+              <!-- {{ item.text }} -->
+              {{ $t(`message.${item.text}`) }}
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
